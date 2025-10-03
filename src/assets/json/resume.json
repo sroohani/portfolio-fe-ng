@@ -1,0 +1,192 @@
+{
+  "header": {
+    "name": "Shahram Roohani",
+    "location": "Porto, Portugal",
+    "map": "https://maps.app.goo.gl/eRJhSejNWNrkuKbt5",
+    "website": "https://sroohani.github.io",
+    "github": "https://github.com/sroohani",
+    "linkedin": "https://www.linkedin.com/in/shahramroohani",
+    "email": "sh.roohani@gmail.com",
+    "cellphone": "+351920262832"
+  },
+  "summary": "Seasoned C and C++ developer with 24+ years of experience, transitioning into full-stack web development. Proficient in Go, JavaScript, TypeScript, React, Next.js, Vue.js, Nuxt, and Python, with a focus on building performant, scalable applications. Passionate about open-source contributions and modern web architectures.",
+  "skills": [
+    {
+      "title": "Languages",
+      "skills": [
+        "C",
+        "Modern C++",
+        "Go",
+        "HTML",
+        "CSS",
+        "JavaScript (ES6+)",
+        "TypeScript",
+        "Python",
+        "SQL",
+        "Lua"
+      ]
+    },
+    {
+      "title": "Frontend",
+      "skills": [
+        "Qt/QML",
+        "SASS/SCSS",
+        "Bootstrap",
+        "Tailwind CSS",
+        "Vue",
+        "Nuxt",
+        "Vuetify",
+        "React",
+        "Next",
+        "Material UI"
+      ]
+    },
+    {
+      "title": "State Management",
+      "skills": ["Pinia", "Zustand", "Jotai", "Redux Toolkit"]
+    },
+    {
+      "title": "Backend",
+      "skills": [
+        "Go - Fiber",
+        "Node.js - Express & Nest.js",
+        "Python - FastAPI"
+      ]
+    },
+    {
+      "title": "Systems",
+      "skills": [
+        "Multithreading",
+        "Memory Management",
+        "Network Programming",
+        "Linux Systems Programming"
+      ]
+    },
+    {
+      "title": "Tools",
+      "skills": [
+        "Git",
+        "Docker",
+        "Vite",
+        "Parcel",
+        "PostgreSQL",
+        "MariaDB",
+        "MongoDB",
+        "Drizzle",
+        "Prisma",
+        "Mongoose"
+      ]
+    }
+  ],
+  "professionalExperience": [
+    {
+      "from": "12-2020",
+      "to": "08-2025",
+      "companies": ["Capgemini", "Aubay", "GBT Solutions", "KCS iT", "Velixo"],
+      "positions": ["IT consultant", "C and C++ developer", "Web developer"],
+      "projects": [
+        "Summit banking system - (C, C++, Bash, Perl, Linux)",
+        "Automotive software (ECU) - (C++, Python, Google Test, Bazel, PlantUML, Embedded Linux)",
+        "Smart grid data collectors - (C, C++, Embedded Linux)",
+        "TV STBs (set-top boxes) - (C, C++, Yocto/Embedded Linux, Docker)",
+        "IPMX/NMOS media streaming libraries - (C, C++, Linux, Docker)",
+        "Excel add-on with shared runtime and task panel - (TypeScript, Office.js, Vite, Vue.js, Pinia)"
+      ]
+    },
+    {
+      "from": "05-2014",
+      "to": "12-2020",
+      "companies": [
+        "Pouyesh Sam Tech Fartak",
+        "Payesh Systems",
+        "Fanavaran Doorandish Eshragh",
+        "Graph (Dadeh Sanji Hasin)"
+      ],
+      "positions": [
+        "C and C++ developer",
+        "Web developer",
+        "Android developer"
+      ],
+      "projects": [
+        "Embedded software for Ethernet managed switch - (C, C++, ZeroMQ, ARM, Embedded Linux)",
+        "Web interface for Ethernet managed switch - (HTML, CSS, JavaScript, FastCGI)",
+        "Indoor positioning and location-aware information system - (C, C++, Qt, JavaScript, FastCGI, Java, PostgreSQL, Linux, Android)",
+        "Automatic number plate recognition - (C, C++, ARM, Embedded Linux)",
+        "Video transcoding and timestamp/logo superimposing software - (C, C++, FFMPEG, OpenCV, Win32 API)",
+        "TI Linux kernel 3.8 to run on an OMAP L-138 LCDK board - (C, ARM, Embedded Linux)",
+        "CPS (Customer Programming Software) - (C++, Qt)",
+        "CPS configuration transfer over USB 2.0 - (C++, Qt, libusb)",
+        "UI and network connectivity for an acoustic positioning system - (C++, QML)",
+        "SNMP agent for radio repeater devices - (C++, net-snmp, Agent++, SNMP++, Linux)",
+        "IP Site Connect agent for radio repeater devices - (C++, Boost, Qt)",
+        "HSM (Hardware Security Module) - (C, C++, gRPC, Yocto/PetaLinux)"
+      ]
+    },
+    {
+      "from": "10-2010",
+      "to": "05-2014",
+      "companies": [
+        "Datak Group of Companies",
+        "Tehran Farajeh International Co.",
+        "Behin Rahkar"
+      ],
+      "positions": [
+        "Director of software development department",
+        "C and C++ developer",
+        "Web developer"
+      ],
+      "projects": [
+        "Correlation engine of a Security Information and Events Management system (SIEM) - (C, C++, Qt, Linux)",
+        "Extensible debugging CLI for the SIEM correlation engine - (C, C++, Boost, Linux)",
+        "Event notifier software for the SIEM correlation engine - (C, C++, Qt, POCO)",
+        "Web-based software for printing plastic debit cards - (C, C++, Qt, JavaScript, Magicard printers)",
+        "Cross-platform agent software for Security Information and Events Management (SIEM) system - (C, C++, Qt, ZeroMQ, Lua)"
+      ]
+    },
+    {
+      "from": "01-2001",
+      "to": "09-2010",
+      "companies": [
+        "Rojna Animation Studios",
+        "Iranian Industrial Training and Research Center",
+        "Tehran Farajeh International Co.",
+        "Tandis Sanat Pardis, A KEYMILE subsidiary in Iran"
+      ],
+      "positions": ["Software developer"],
+      "projects": [
+        "Controller software for a Jog/Shuttle keyboard - (C, C++, Win32 API, 82C51 assembly)",
+        "Quiz software - (Visual Basic, MS JetEngine)",
+        "Rich library of helper classes and functions - (C, C++, Win32 API)",
+        "Suite of multimedia widgets - (C, C++, MFC, Win32 API)",
+        "Codec converter software - (C, C++, MFC, DirectShow)",
+        "Playlist Creator software - (C, C++, MFC, DirectShow)",
+        "VTR emulator software - (C, C++, MFC)",
+        "Ingest Server software and its peripheral software tool - (C, C++, MFC, DirectShow, Matrox DigiSuite/DSX)",
+        "Playout Server software and its peripheral software tools - (C, C++, MFC, DirectShow, Matrox DigiSuite/DSX)",
+        "Linux kernel module for configuring  an Ethernet switch - (C, Embedded Linux)",
+        "Software for the DSL transceiver interface of an SHDSL DSLAM - (C, C++, Freescale PowerPC, VxWorks, Infineon Socrates-4e SHDSL)",
+        "Software for the DSL transceiver interface of an ADSLx/VDSL2 DSLAM - (C, C++, Freescale PowerPC, Linux, Infineon Vinax-M ADSLx/VDSL2 transceiver)",
+        "Frame Grabber software (Part-time contract) - (C, C++, Win32, EMS Imaging PhynxRGB RGB frame grabber cards)",
+        "Video server (Part-time contract) - (C, C++, MFC, Win32 API, FFMPEG, MainConcept SDK, Bluefish video cards)"
+      ]
+    }
+  ],
+  "education": [
+    "Associate's degree in computer engineering (Hardware) - Azad university of Tehran, south branch",
+    "Diploma in mathematics and physics - Alborz highschool of Tehran"
+  ],
+  "languages": [
+    {
+      "name": "Persian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "Portuguese",
+      "level": "Beginner"
+    }
+  ]
+}

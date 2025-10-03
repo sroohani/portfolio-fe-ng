@@ -1,0 +1,66 @@
+"use client";
+
+import { type NavbarItemData } from "./types";
+import Link from "next/link";
+import { usePathStore } from "./store";
+
+interface NavbarProps {
+  id: number;
+  items: NavbarItemData[];
+  vertical?: boolean;
+  onClick?: (navbarId: number, navbarItemId: number) => void;
+}
+
+const Navbar = ({
+  id,
+  items,
+  vertical = false,
+  onClick = undefined,
+}: NavbarProps) => {
+  const { path } = usePathStore();
+
+  const comparablePath = (path: string): string => {
+    if (path === "~") {
+      return "/";
+    }
+
+    if (path.startsWith("~")) {
+      return path.substring(1);
+    }
+
+    return "🤔";
+  };
+
+  return (
+    <nav
+      className={`sm:flex justify-around gap-8 mt-1 ${
+        vertical ? "flex-col items-start" : "hidden items-center"
+      }`}
+    >
+      {items.map((item) => (
+        <Link
+          className={`group h-full no-underline flex flex-col justify-around gap-1 ${
+            vertical ? "items-stetch" : "items-center"
+          } text-inherit bg-inherit`}
+          href={item.altHref || item.href}
+          onClick={() => onClick && onClick(id, item.id)}
+          key={item.id}
+        >
+          <div className="flex content-around items-center">
+            {item.icon && <item.icon className="mr-2" />}
+            <span className="flex content-center items-center h-full">
+              {item.title}
+            </span>
+          </div>
+          <div
+            className={`h-[0.1rem] ${
+              item.href === comparablePath(path) ? "w-full" : "w-0"
+            } bg-[var(--color-foreground)] group-hover:transition-[width] group-hover:w-full`}
+          ></div>
+        </Link>
+      ))}
+    </nav>
+  );
+};
+
+export default Navbar;

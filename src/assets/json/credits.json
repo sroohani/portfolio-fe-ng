@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "img": "/images/credits/solas.png",
+    "title": "Solas",
+    "href": "https://chatgpt.com/"
+  },
+  {
+    "id": 1,
+    "img": "/images/credits/no-image.jpg",
+    "title": "Photo by Markus Spiske from Pexels",
+    "href": "https://www.pexels.com/photo/codes-on-tilt-shift-lens-2004161/"
+  },
+  {
+    "id": 2,
+    "img": "https://avatars.githubusercontent.com/u/66879934?s=200&v=4",
+    "title": "Lucide Icons",
+    "href": "https://lucide.dev/icons/"
+  },
+  {
+    "id": 3,
+    "img": "https://avatars.githubusercontent.com/u/29872746",
+    "title": "Simple Icons",
+    "href": "https://simpleicons.org/"
+  },
+  {
+    "id": 4,
+    "img": "https://avatars.githubusercontent.com/u/39895671",
+    "title": "React Icons",
+    "href": "https://react-icons.github.io/react-icons/"
+  },
+  {
+    "id": 5,
+    "img": "/images/credits/logo.jpeg",
+    "title": "Logo by Microsoft Designer AI",
+    "href": "https://create.microsoft.com/en-us/features/ai-image-generator"
+  },
+  {
+    "id": 6,
+    "img": "/images/credits/Flag_of_Iran_simplified.svg",
+    "title": "Flag of Iran",
+    "href": "https://flagofiran.com/"
+  },
+  {
+    "id": 7,
+    "img": "/images/credits/jared-evans-Wwg1TzCuV9E-unsplash.jpg",
+    "title": "Photo by Jared Evans from Unsplash",
+    "href": "https://unsplash.com/photos/desert-sand-Wwg1TzCuV9E"
+  }
+]
