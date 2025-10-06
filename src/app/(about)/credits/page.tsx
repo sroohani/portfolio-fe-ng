@@ -3,6 +3,11 @@ import credits from "@/assets/json/credits.json";
 import { CreditItemData } from "@/components/types";
 import Card from "@/components/Card";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Credits",
+};
 
 const Credits = () => {
   const creds: CreditItemData[] = JSON.parse(JSON.stringify(credits));

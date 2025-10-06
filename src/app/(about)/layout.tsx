@@ -4,7 +4,11 @@ import Tabbar from "@/components/Tabbar";
 import { tabbarItemsData } from "@/components/client-constants";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: {
+    default: "Shahram Roohani",
+    template: "%s | Shahram Roohani",
+  },
+  description: "Portfolio",
 };
 
 interface Props {

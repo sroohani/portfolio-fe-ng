@@ -2,9 +2,10 @@ import { Metadata } from "next";
 import Image from "next/image";
 import HomeButtonBar from "./HomeButtonBar";
 import logo from "@/assets/images/logo.jpeg";
+import wavingHand from "@/assets/images/waving-hand.png";
 
 export const metadata: Metadata = {
-  title: "Shahram Roohani",
+  title: "Home | Shahram Roohani",
 };
 
 const Home = () => {
@@ -21,7 +22,16 @@ const Home = () => {
           />
         </div>
         <div className="w-full flex flex-col justify-center items-center">
-          <span className="text-2xl sm:text-3xl">Hi 👋</span>
+          <span className="text-2xl sm:text-3xl">
+            Hi&nbsp;
+            <Image
+              src={wavingHand}
+              height={32}
+              width={32}
+              alt="Waving hand"
+              className="inline-block"
+            />
+          </span>
           <span className="text-2xl sm:text-3xl">My name is Shahram</span>
         </div>
       </div>

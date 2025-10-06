@@ -1,23 +1,4 @@
-import { Text, StyleSheet, View, Image as PDFImage } from "@react-pdf/renderer";
-
-const styles = StyleSheet.create({
-  education: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    fontSize: 8,
-    fontWeight: 400,
-    marginTop: 4,
-    marginBottom: 4,
-    width: "100%",
-  },
-  university: {
-    width: 8,
-    height: 8,
-    marginRight: 4,
-  },
-});
+import Image from "next/image";
 
 interface Props {
   title: string;
@@ -25,10 +6,15 @@ interface Props {
 
 const Education = ({ title }: Props) => {
   return (
-    <View style={styles.education}>
-      <PDFImage style={styles.university} src="/images/resume/university.png" />
-      <Text>{title}</Text>
-    </View>
+    <div className="flex justify-start items-center w-full font-[400] text-[0.3rem] gap-[0.9]">
+      <Image
+        src="/images/resume/university.png"
+        width={6}
+        height={6}
+        alt="University"
+      />
+      <span className="pb-1.5">{title}</span>
+    </div>
   );
 };
 

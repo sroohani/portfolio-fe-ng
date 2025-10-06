@@ -1,55 +1,50 @@
-import {
-  View,
-  Image as PDFImage,
-  Link,
-  Text,
-  StyleSheet,
-} from "@react-pdf/renderer";
+import Image from "next/image";
 
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    fontSize: 10,
-    fontWeight: 400,
-    gap: 6,
-    width: "33%",
-  },
-  link: {
-    textDecoration: "none",
-  },
-  image: {
-    width: 10,
-    height: 10,
-    alignSelf: "flex-start",
-  },
-  text: {
-    textAlign: "left",
-  },
-});
-
-export interface Props {
-  id?: number;
-  isLink?: boolean;
-  href?: string;
+interface Props {
+  image: string;
   text: string;
-  image?: string;
+  isLink?: boolean;
+  isEmail?: boolean;
 }
+const stripScheme = (text: string) => {
+  if (text.includes("://")) {
+    return text.substring(text.indexOf("://") + 3);
+  }
 
-const ContactItem = ({ isLink, href, text, image }: Props) => {
+  return text;
+};
+const ContactItem = ({
+  image,
+  text,
+  isLink = false,
+  isEmail = false,
+}: Props) => {
   return (
-    <View style={styles.container}>
-      {image && <PDFImage src={image} style={styles.image} />}
-      {isLink ? (
-        <Link src={href} style={styles.link}>
-          <Text style={styles.text}>{text}</Text>
-        </Link>
-      ) : (
-        <Text>{text}</Text>
+    <div className="w-[50%] h-3 flex justify-start items-center gap-1 text-[0.5rem]">
+      <Image src={image} width={8} height={8} alt="Location" />
+      {isLink && (
+        <a
+          href={text}
+          target="_blank"
+          className="h-full flex justify-start items-center pb-3"
+        >
+          {stripScheme(text)}
+        </a>
       )}
-    </View>
+      {isEmail && (
+        <a
+          href={`mailto:${text}`}
+          className="h-full flex justify-start items-center pb-3"
+        >
+          {text}
+        </a>
+      )}
+      {!(isLink || isEmail) && (
+        <span className="h-full flex justify-start items-center pb-3">
+          {text}
+        </span>
+      )}
+    </div>
   );
 };
 

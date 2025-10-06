@@ -1,24 +1,3 @@
-import { View, Text, StyleSheet } from "@react-pdf/renderer";
-
-const styles = StyleSheet.create({
-  language: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    fontSize: 8,
-    fontWeight: 400,
-    marginTop: 4,
-    marginBottom: 4,
-    paddingBottom: 4,
-    width: "25%",
-  },
-  name: {
-    width: "50%",
-    fontWeight: "bold",
-  },
-});
-
 interface Props {
   name: string;
   level: string;
@@ -26,10 +5,10 @@ interface Props {
 
 const Language = ({ name, level }: Props) => {
   return (
-    <View style={styles.language}>
-      <Text style={styles.name}>{name}</Text>
-      <Text>{level}</Text>
-    </View>
+    <div className="w-full flex justify-start items-center text-[0.3rem] font-[400]">
+      <span className="w-[10%] font-bold">{name}</span>
+      <span className="w-[90%]">{level}</span>
+    </div>
   );
 };
 

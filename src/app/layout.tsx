@@ -23,10 +23,10 @@ export const metadata: Metadata = {
   title: {
     default: "Shahram Roohani",
     template: "%s | Shahram Roohani",
-    absolute: "Shahram Roohani",
   },
   description: "Portfolio",
 };
+
 // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 export default function RootLayout({
   children,

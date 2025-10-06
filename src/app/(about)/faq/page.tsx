@@ -2,6 +2,11 @@ import Card from "@/components/Card";
 import React from "react";
 import faq from "@/assets/json/faq.json";
 import { QA } from "@/components/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQ",
+};
 
 const FAQ = () => {
   const qas: QA[] = JSON.parse(JSON.stringify(faq));
