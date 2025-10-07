@@ -2,23 +2,24 @@
   {
     "id": 0,
     "name": "My personal website",
-    "shortDescription": "This website",
+    "shortDescription": "The frontend of this website",
     "longDescription": "This is merely a hobby and an attempt for me to learn web technologies",
-    "techStack": [
-      "TypeScript",
-      "HTML",
-      "Tailwind CSS",
-      "Next.js",
-      "React",
-      "Go",
-      "Appwrite Functions"
-    ],
+    "techStack": ["TypeScript", "HTML", "Tailwind CSS", "Next.js", "React"],
     "img": "/images/projects/sroohani.github.io.png",
-    "github": "https://github.com/sroohani/sroohani.github.io",
+    "github": "https://github.com/sroohani/portfolio-fe-ng",
     "live": "https://sroohani.github.io"
   },
   {
     "id": 1,
+    "name": "My personal website",
+    "shortDescription": "The backend of this website",
+    "longDescription": "This is merely a hobby and an attempt for me to learn web technologies",
+    "techStack": ["Go", "Appwrite Functions"],
+    "img": "/images/projects/website-be.png",
+    "github": "https://github.com/sroohani/portfolio-be-functions"
+  },
+  {
+    "id": 2,
     "name": "File System Name Generator",
     "shortDescription": "Natural file and folder name generator",
     "longDescription": "This is a fork of a decade-old project, modernized using ES6 and re-written in TypeScript",
