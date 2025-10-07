@@ -136,7 +136,12 @@ const Content = () => {
       <div className="flex justify-between items-center w-full pb-4 border-b">
         <span className="text-xl">{resData.header.name}</span>
         <div className="h-4 w-4">
-          <IconButton id={0} icon={Download} onClick={handleDownload} />
+          <IconButton
+            id={0}
+            icon={Download}
+            title="Download my resume"
+            onClick={handleDownload}
+          />
         </div>
       </div>
       <Contactbar
