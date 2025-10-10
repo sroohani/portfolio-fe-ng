@@ -85,6 +85,17 @@
   transition: background-color 5000s ease-in-out 0s;
 }
 
+@utility tel-normal-label {
+  top: -0.1rem;
+  left: 2.7rem;
+  opacity: 0.6;
+}
+
+@utility tel-elevated-label {
+  transform: translate(-2.7rem, -1.5rem);
+  opacity: 1;
+}
+
 @layer components {
   .btn-nav {
     @apply flex justify-center items-center gap-2 px-4 py-2;

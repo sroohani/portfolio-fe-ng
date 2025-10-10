@@ -1,10 +1,7 @@
 import { useRef, useState } from "react";
-import PhoneInput, { type Value } from "react-phone-number-input";
-import iran from "@/assets/images/Flag_of_Iran_simplified.svg";
-import Image from "next/image";
 
 interface Props {
-  type: "text" | "email" | "tel" | "textarea";
+  type: "text" | "email" | "textarea";
   id: string;
   title: string;
   maxLen: number;
@@ -52,28 +49,6 @@ const FormInput = ({
             onChange={(e) => handleTextChange(e.target.value)}
           />
         )}
-        {type === "tel" && (
-          <PhoneInput
-            className="w-full [&_input]:autofill:no-browser-autofill-style [&_input]:hover:autofill:no-browser-autofill-style [&_input]:focus:autofill:no-browser-autofill-style peer/input"
-            flags={{
-              IR: () => (
-                <Image
-                  width={20}
-                  height={10}
-                  src={iran}
-                  alt="Lion and Sun Flag"
-                />
-              ),
-            }}
-            placeholder="WhatsApp number"
-            name="whatsapp"
-            value={value}
-            onChange={(val: Value) =>
-              handleTextChange((val && val.toString()) || "")
-            }
-            required
-          />
-        )}
         {type === "textarea" && (
           <textarea
             id={id}
@@ -89,11 +64,7 @@ const FormInput = ({
         )}
         <span
           data-label
-          className={`absolute placeholder opacity-60 ${
-            type === "tel"
-              ? "left-10 top-0 group-focus-within:-translate-y-8"
-              : "left-2 top-0 group-focus-within:-translate-y-6 peer-not-placeholder-shown/input:-translate-y-6"
-          } transform group-focus-within:opacity-100 peer-has-[input]:not-placeholder-shown/input:opacity-100 transition-all duration-300 `}
+          className="absolute placeholder opacity-60 left-2 top-0 group-focus-within:-translate-y-6 peer-not-placeholder-shown/input:-translate-y-6 transform group-focus-within:opacity-100 peer-has-[input]:not-placeholder-shown/input:opacity-100 transition-all duration-300"
         >
           {title}
         </span>

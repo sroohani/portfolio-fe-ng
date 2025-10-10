@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <div className="w-full flex justify-center items-center">
+        <div className="w-full flex justify-center sm:justify-start items-center">
           <Image
             src={logo}
             width={150}
@@ -35,7 +35,8 @@ const Home = () => {
           <span className="text-2xl sm:text-3xl">My name is Shahram</span>
         </div>
       </div>
-      <p className="mt-8 sm:mt-4 sm:text-2xl text-center">
+      <hr className="w-[75%] mt-4" />
+      <p className="my-6 sm:my-32 sm:text-2xl text-center">
         I&apos;m a seasoned C and C++ developer with 24+ years of experience who
         also passionately explores the world of web technologies.
       </p>

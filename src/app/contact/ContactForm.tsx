@@ -11,6 +11,7 @@ import Button from "@/components/Button";
 import { IoMdSend } from "react-icons/io";
 import { z } from "zod";
 import { sendMessage } from "@/server-actions";
+import TelInput from "./TelInput";
 
 const ContactForm = () => {
   const [contactType, setContactType] = useState(CONTACT_TYPE_NONE);
@@ -43,7 +44,6 @@ const ContactForm = () => {
         );
       });
 
-    console.log(formData);
     const result = formSchema.safeParse(formData);
     if (result.error) {
       alert("Please properly fill out the form");
@@ -61,8 +61,18 @@ const ContactForm = () => {
       })
     );
 
-    formRef.current!.reset();
+    // formRef.current!.reset();
+    for (const child of formRef.current!.querySelectorAll("*")) {
+      if (
+        child.nodeType === Node.ELEMENT_NODE &&
+        (child instanceof HTMLInputElement ||
+          child instanceof HTMLTextAreaElement)
+      ) {
+        child.value = "";
+      }
+    }
   };
+
   return (
     <form
       ref={formRef}
@@ -91,13 +101,7 @@ const ContactForm = () => {
       )}
 
       {contactType === CONTACT_TYPE_WHATSAPP && (
-        <FormInput
-          type="tel"
-          id="tel"
-          title="WhatsApp number"
-          maxLen={128}
-          required
-        />
+        <TelInput id="tel" title="WhatsApp number" maxLen={128} required />
       )}
 
       {contactType === CONTACT_TYPE_NONE && (
