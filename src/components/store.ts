@@ -45,19 +45,23 @@ export const useThemeStore = create<ThemeStore>((set) => ({
 
 interface PathStore {
   path: string;
+  notFound: boolean;
   navItemId: number;
   setPath: (path: string) => void;
-  setNavItemId: (id: number) => void;
+  setNotFound: (notFound: boolean) => void;
+  setNavItemId: (navItemId: number) => void;
 }
 
 const normalizedPathname = (path: string): string =>
-  path === "🤔" ? path : path === "/" ? "~" : `~${path}`;
+  path === "/" ? "~" : `~${path}`;
 
 export const usePathStore = create<PathStore>((set) => ({
   path: "~",
+  notFound: false,
   navItemId: 0,
   setPath: (path) => set(() => ({ path: normalizedPathname(path) })),
-  setNavItemId: (id) => set(() => ({ navItemId: id })),
+  setNotFound: (notFound) => set(() => ({ notFound })),
+  setNavItemId: (navItemId) => set(() => ({ navItemId })),
 }));
 
 interface SideMenuStore {

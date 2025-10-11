@@ -18,7 +18,7 @@ const Header = () => {
   const themeIconButtonRef = useRef<HTMLButtonElement>(null);
   const sideMenuIconButtonRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLElement>(null);
-  const { setPath } = usePathStore();
+  const { setPath, setNotFound } = usePathStore();
   const {
     setSelectorVisibility,
     setSelectorTop,
@@ -35,6 +35,7 @@ const Header = () => {
   } = useSideMenuStore();
 
   const handleNavbarClick = (navbarId: number, navbarItemId: number) => {
+    setNotFound(false);
     setPath(
       navbarItemsData.find((item) => item.id === navbarItemId)?.href ?? "/"
     );

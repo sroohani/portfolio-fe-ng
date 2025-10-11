@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 const NotFound = () => {
-  const { setPath } = usePathStore();
+  const { setNotFound } = usePathStore();
   useEffect(() => {
-    setPath("🤔");
-  }, [setPath]);
+    setNotFound(true);
+  }, [setNotFound]);
 
   return (
     <div className="flex flex-col justify-center items-center h-full text-background bg-[url('/images/jared-evans-Wwg1TzCuV9E-unsplash.jpg')] bg-bottom sm:bg-center">
@@ -22,6 +22,7 @@ const NotFound = () => {
         href="/"
         replace
         className="w-[20ch] p-4 mt-8 text-center no-underline text-black text-2xl font-semibold cursor-pointer bg-white/20 hover:bg-white transition-colors duration-300"
+        onClick={() => setNotFound(false)}
       >
         Go back home!
       </Link>
