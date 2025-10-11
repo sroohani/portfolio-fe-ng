@@ -8,6 +8,7 @@ import Prompt from "@/components/Prompt";
 import Container from "@/components/Container";
 import ThemeSelector from "@/components/ThemeSelector";
 import SideMenu from "@/components/SideMenu";
+import ToastContainer from "./ToastContainer";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -27,7 +28,6 @@ export const metadata: Metadata = {
   description: "Portfolio",
 };
 
-// className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,8 +37,16 @@ export default function RootLayout({
     <html lang="en" className="hidden font-sans antialiased">
       <body className="relative h-full w-full sm:w-[80%] max-w-[800px] m-auto">
         <Container>
-          <Header />
-          <Prompt username="me" hostname="here" />
+          <div className="w-full flex justify-start items-center">
+            <ToastContainer classes="sm:hidden" />
+            <Header />
+          </div>
+          <hr className="w-full" />
+          <div className="w-full flex justify-start items-center">
+            <Prompt username="me" hostname="here" />
+            <ToastContainer classes="hidden sm:flex" />
+          </div>
+          <hr className="w-full" />
           <Main>{children}</Main>
           <Footer />
         </Container>

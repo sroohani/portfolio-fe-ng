@@ -1,12 +1,5 @@
 import { useEffect, useRef, useReducer } from "react";
-import {
-  CopyModalState,
-  CopyModdalAction,
-  Position,
-  ToastAction,
-  ToastState,
-  ToastType,
-} from "./types";
+import { CopyModalState, CopyModalAction } from "./types";
 
 export const useClose = (callback: () => void) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -38,61 +31,12 @@ export const useClose = (callback: () => void) => {
   return ref;
 };
 
-export const useToastReducer = () => {
-  const reducer = (state: ToastState, action: ToastAction): ToastState => {
-    switch (action.type) {
-      case "visibility":
-        return { ...state, visibility: action.payload as boolean };
-
-      case "message":
-        return { ...state, message: action.payload as string };
-
-      case "type":
-        return { ...state, type: action.payload as ToastType };
-
-      case "position":
-        return { ...state, position: { ...(action.payload as Position) } };
-
-      default:
-        return state;
-    }
-  };
-
-  const [state, dispatch] = useReducer(reducer, {
-    visibility: false,
-    message: "",
-    type: "info",
-    position: { top: 0 },
-  });
-
-  const setVisibility = (show: boolean) => {
-    dispatch({ type: "visibility", payload: show });
-  };
-
-  const setMessage = (message: string) => {
-    dispatch({ type: "message", payload: message });
-  };
-
-  const setType = (type: ToastType) => {
-    dispatch({ type: "type", payload: type });
-  };
-
-  const setPosition = (position: Position) => {
-    dispatch({ type: "position", payload: position });
-  };
-
-  return { state, setVisibility, setMessage, setType, setPosition };
-};
-
 export const useCopyModalReducer = () => {
   const reducer = (
     state: CopyModalState,
-    action: CopyModdalAction
+    action: CopyModalAction
   ): CopyModalState => {
     switch (action.type) {
-      case "id":
-        return { ...state, id: action.payload as number };
-
       case "visibility":
         return { ...state, visibility: action.payload as boolean };
 
@@ -111,16 +55,11 @@ export const useCopyModalReducer = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, {
-    id: -1,
     visibility: false,
     title: "",
     prompt: "",
     textToCopy: "",
   });
-
-  const setId = (id: number) => {
-    dispatch({ type: "id", payload: id });
-  };
 
   const setVisibility = (show: boolean) => {
     dispatch({ type: "visibility", payload: show });
@@ -138,5 +77,5 @@ export const useCopyModalReducer = () => {
     dispatch({ type: "text-to-copy", payload: textToCopy });
   };
 
-  return { state, setId, setVisibility, setTitle, setPrompt, setTextToCopy };
+  return { state, setVisibility, setTitle, setPrompt, setTextToCopy };
 };

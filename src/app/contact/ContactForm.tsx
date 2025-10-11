@@ -12,10 +12,13 @@ import { IoMdSend } from "react-icons/io";
 import { z } from "zod";
 import { sendMessage } from "@/server-actions";
 import TelInput from "./TelInput";
+import { useToastStore } from "@/components/store";
 
 const ContactForm = () => {
+  const toast = useToastStore();
   const [contactType, setContactType] = useState(CONTACT_TYPE_NONE);
   const formRef = useRef<HTMLFormElement>(null);
+  const [formKey, setFormKey] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,20 +64,15 @@ const ContactForm = () => {
       })
     );
 
-    // formRef.current!.reset();
-    for (const child of formRef.current!.querySelectorAll("*")) {
-      if (
-        child.nodeType === Node.ELEMENT_NODE &&
-        (child instanceof HTMLInputElement ||
-          child instanceof HTMLTextAreaElement)
-      ) {
-        child.value = "";
-      }
-    }
+    setFormKey(!formKey);
+
+    toast.setMessage("Sent!");
+    toast.setVisible(true);
   };
 
   return (
     <form
+      key={`${formKey}`}
       ref={formRef}
       onSubmit={(e) => handleSubmit(e)}
       className="flex flex-col justify-center items-center gap-8 w-full sm:w-60%"
@@ -122,7 +120,7 @@ const ContactForm = () => {
       />
       <Button
         title="Send"
-        classes="w-[15ch]"
+        classes="min-w-[15ch]"
         icon={IoMdSend}
         iconPosition="after"
       />

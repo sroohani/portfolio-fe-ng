@@ -121,42 +121,22 @@ export interface ResumeData {
 export interface ContactLink {
   id: number;
   icon: IconType;
-  title?: string;
+  title: string;
   href?: string;
   withCopy?: boolean;
   textToCopy?: string;
 }
 
-export interface Position {
-  left?: number;
-  top?: number;
-  right?: number;
-  bottom?: number;
-}
-
 export type ToastType = "success" | "warning" | "error" | "info";
 
-export interface ToastState {
-  visibility: boolean;
-  message: string;
-  type: ToastType;
-  position: Position;
-}
-
-export interface ToastAction {
-  type: "visibility" | "message" | "type" | "position";
-  payload: boolean | string | ToastType | Position;
-}
-
 export interface CopyModalState {
-  id: number;
   visibility: boolean;
   title: string;
   prompt: string;
   textToCopy: string;
 }
 
-export interface CopyModdalAction {
-  type: "id" | "visibility" | "title" | "prompt" | "text-to-copy";
+export interface CopyModalAction {
+  type: "visibility" | "title" | "prompt" | "text-to-copy";
   payload: number | boolean | string;
 }

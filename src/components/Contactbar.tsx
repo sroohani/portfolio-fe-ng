@@ -1,35 +1,36 @@
 "use client";
 
-import React from "react";
 import { ContactLink } from "./types";
+import { useToastStore } from "./store";
+import CopyModal from "@/components/CopyModal";
+import { useCopyModalReducer } from "@/components/hooks";
 
 interface Props {
   contactLinks: ContactLink[];
-  copyFallback?: (id: number) => boolean;
-  onClick?: (id: number) => void;
-  onCopy?: (id: number) => void;
 }
 
-const Contactbar = ({ contactLinks, copyFallback, onClick, onCopy }: Props) => {
-  const canCopy = false;
-  // const canCopy =
-  //   navigator.clipboard !== undefined &&
-  //   navigator.clipboard.writeText !== undefined;
+const Contactbar = ({ contactLinks }: Props) => {
+  const toast = useToastStore();
+  const copyModalReducer = useCopyModalReducer();
 
-  const handleClickCopy = async (id: number, textToCopy: string) => {
+  const closeCopyModal = () => {
+    copyModalReducer.setVisibility(false);
+  };
+  // const canCopy = false;
+  const canCopy =
+    navigator.clipboard !== undefined &&
+    navigator.clipboard.writeText !== undefined;
+
+  const handleCopy = async (title: string, textToCopy: string) => {
     if (canCopy) {
       await navigator.clipboard.writeText(textToCopy);
-      if (onCopy) {
-        onCopy(id);
-      }
-
-      if (onClick) {
-        onClick(id);
-      }
+      toast.setMessage("Copied!");
+      toast.setVisible(true);
     } else {
-      if (copyFallback && copyFallback(id) && onClick) {
-        onClick(id);
-      }
+      copyModalReducer.setTitle(title);
+      copyModalReducer.setTextToCopy(textToCopy);
+      copyModalReducer.setPrompt("Please copy the contact information:");
+      copyModalReducer.setVisibility(true);
     }
   };
 
@@ -41,9 +42,7 @@ const Contactbar = ({ contactLinks, copyFallback, onClick, onCopy }: Props) => {
             href={href}
             target="_blank"
             onClick={() =>
-              withCopy
-                ? textToCopy && handleClickCopy(id, textToCopy)
-                : onClick && onClick(id)
+              withCopy ? handleCopy(title, textToCopy ?? "") : undefined
             }
             key={id}
           >
@@ -55,6 +54,14 @@ const Contactbar = ({ contactLinks, copyFallback, onClick, onCopy }: Props) => {
             />
           </a>
         )
+      )}
+      {copyModalReducer.state.visibility && (
+        <CopyModal
+          title={copyModalReducer.state.title}
+          prompt={copyModalReducer.state.prompt}
+          textToCopy={copyModalReducer.state.textToCopy}
+          closeMe={closeCopyModal}
+        />
       )}
     </div>
   );

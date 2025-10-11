@@ -22,7 +22,7 @@ const Home = () => {
           />
         </div>
         <div className="w-full flex flex-col justify-center items-center">
-          <span className="text-2xl sm:text-3xl">
+          <span className="text-2xl sm:text-3xl mb-2">
             Hi&nbsp;
             <Image
               src={wavingHand}

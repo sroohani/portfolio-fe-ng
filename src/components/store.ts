@@ -1,6 +1,6 @@
 import { LS_ITEM_THEME } from "@/components/client-constants";
 import { create } from "zustand";
-import { Project } from "./types";
+import { Project, ToastType } from "./types";
 import prj from "@/assets/json/projects.json";
 
 interface ThemeStore {
@@ -92,11 +92,23 @@ export const useProjectsStore = create<ProjectsStore>(() => ({
 }));
 
 interface ToastStore {
-  showCopy: boolean;
-  setShowCopy: (show: boolean) => void;
+  message: string;
+  type?: ToastType;
+  maxAgeMs?: number;
+  visible: boolean;
+  setMessage: (message: string) => void;
+  setType: (type: ToastType) => void;
+  setMaxAgeMs: (maxAgeMs: number) => void;
+  setVisible: (visible: boolean) => void;
 }
 
 export const useToastStore = create<ToastStore>((set) => ({
-  showCopy: false,
-  setShowCopy: (show) => set({ showCopy: show }),
+  message: "",
+  type: "success",
+  maxAgeMs: 3000,
+  visible: false,
+  setMessage: (message) => set({ message }),
+  setType: (type) => set({ type }),
+  setMaxAgeMs: (maxAgeMs) => set({ maxAgeMs }),
+  setVisible: (visible) => set({ visible }),
 }));

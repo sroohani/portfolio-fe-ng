@@ -1,35 +1,14 @@
 import Modal from "@/components/Modal";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface Props {
-  id: number;
   title: string;
   prompt: string;
   textToCopy: string;
-  copyOccurred: (id: number) => void;
   closeMe: () => void;
 }
-const CopyModal = ({
-  id,
-  title,
-  prompt,
-  textToCopy,
-  copyOccurred,
-  closeMe,
-}: Props) => {
+const CopyModal = ({ title, prompt, textToCopy, closeMe }: Props) => {
   const textRef = useRef<HTMLInputElement>(null);
-  const [didCopy, setDidCopy] = useState(false);
-
-  const handleCopy = () => {
-    setDidCopy(true);
-  };
-
-  const handleClose = () => {
-    if (didCopy) {
-      copyOccurred(id);
-    }
-    closeMe();
-  };
 
   useEffect(() => {
     if (textRef.current) {
@@ -38,7 +17,7 @@ const CopyModal = ({
   });
 
   return (
-    <Modal title={title} closeMe={handleClose}>
+    <Modal title={title} closeMe={closeMe}>
       <span className="mb-2">{prompt}</span>
       <input
         ref={textRef}
@@ -46,7 +25,6 @@ const CopyModal = ({
         value={textToCopy}
         readOnly
         className="text-center outline-none"
-        onCopy={() => handleCopy()}
       />
     </Modal>
   );

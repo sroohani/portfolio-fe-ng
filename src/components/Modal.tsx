@@ -30,17 +30,17 @@ const Modal = ({
 
   return (
     <div
-      className={`w-full h-full fixed flex justify-center items-center top-0 left-0 ${
+      className={`w-dvw h-dvh fixed flex justify-center items-center top-0 left-0 ${
         backgroundOpacity === "semi"
           ? "bg-background/50"
           : backgroundOpacity === "transparent"
           ? "bg-transparent"
           : "bg-background"
-      }`}
+      } z-10`}
     >
       <div
         ref={frameRef}
-        className="flex flex-col justify-center items-center px-4 py-2 b-[1px] bg-background w-fit max-w-[80%] shadow-[0_0_6px_2px]"
+        className="flex flex-col justify-center items-center px-4 py-2 border-[1px] bg-background w-fit max-w-[80%] shadow-[0_0_6px_2px]"
       >
         <div className="flex justify-between items-center pb-2 border-b-[1px] mb-4 h-6 w-full">
           <span>{title}</span>

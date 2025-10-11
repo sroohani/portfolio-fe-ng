@@ -6,7 +6,7 @@ interface Props {
 
 const Container = ({ children }: Props) => {
   return (
-    <div className="h-full flex flex-col items-center gap-4">{children}</div>
+    <div className="h-full flex flex-col items-center gap-2">{children}</div>
   );
 };
 

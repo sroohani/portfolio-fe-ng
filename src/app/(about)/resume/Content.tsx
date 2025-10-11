@@ -2,115 +2,17 @@
 
 import { createRoot } from "react-dom/client";
 import { flushSync } from "react-dom";
-import React, { useEffect, useMemo, useState } from "react";
 import { Download } from "lucide-react";
 import { FaUniversity } from "react-icons/fa";
 import { VscProject } from "react-icons/vsc";
-import {
-  CONTACT_CELLPHONE_ID,
-  CONTACT_EMAIL_ID,
-  contactLinks,
-  resData,
-} from "@/components/server-constants";
+import { contactLinks, resData } from "@/components/server-constants";
 import Card from "@/components/Card";
 import Contactbar from "@/components/Contactbar";
-import Toast from "@/components/Toast";
-import { useCopyModalReducer, useToastReducer } from "@/components/hooks";
-import CopyModal from "@/components/CopyModal";
 import IconButton from "@/components/IconButton";
 import PDF from "./PDF";
 import { jsPDF } from "jspdf";
 
 const Content = () => {
-  const toastReducer = useToastReducer();
-  const copyModalReducer = useCopyModalReducer();
-  const initialCopyState = useMemo(() => ({ copied: false, id: -1 }), []);
-  const [copyOccurred, setCopyOccurred] = useState<{
-    copied: boolean;
-    id: number;
-  }>(initialCopyState);
-
-  const closeToast = () => {
-    setCopyOccurred(initialCopyState);
-    toastReducer.setVisibility(false);
-  };
-
-  const copyOccurredCb = (id: number) => {
-    copyModalReducer.setId(id);
-    setCopyOccurred({ copied: true, id });
-  };
-
-  const closeCopyModal = () => {
-    copyModalReducer.setVisibility(false);
-  };
-
-  const copyFallback = (id: number): boolean => {
-    switch (id) {
-      case CONTACT_EMAIL_ID:
-        copyModalReducer.setTitle("Email");
-        copyModalReducer.setPrompt(
-          "Broswer copy API is not available. Please copy the email address manually:"
-        );
-        copyModalReducer.setTextToCopy(
-          contactLinks.find((l) => l.id === id)!.textToCopy ||
-            "Email address not available"
-        );
-        toastReducer.setPosition({ top: 0 });
-        copyModalReducer.setId(id);
-        copyModalReducer.setVisibility(true);
-
-        break;
-
-      case CONTACT_CELLPHONE_ID:
-        copyModalReducer.setTitle("Cell phone");
-        copyModalReducer.setPrompt(
-          "Broswer copy API is not available. Please copy the cell phone number manually:"
-        );
-        copyModalReducer.setTextToCopy(
-          contactLinks.find((l) => l.id === id)!.textToCopy ||
-            "Cell phone number not available"
-        );
-        toastReducer.setPosition({ top: 0 });
-        copyModalReducer.setId(id);
-        copyModalReducer.setVisibility(true);
-
-        break;
-
-      default:
-        break;
-    }
-
-    return true;
-  };
-
-  const handleCopy = (id: number) => {
-    setCopyOccurred({ copied: true, id });
-  };
-
-  useEffect(() => {
-    if (copyOccurred.copied) {
-      const id = copyOccurred.id;
-      setCopyOccurred(initialCopyState);
-      toastReducer.setPosition({ top: 0 });
-      toastReducer.setType("success");
-
-      switch (id) {
-        case CONTACT_EMAIL_ID:
-          toastReducer.setMessage("Email address copied to clipboard");
-          toastReducer.setVisibility(true);
-          break;
-
-        case CONTACT_CELLPHONE_ID:
-          toastReducer.setMessage("Cell phone number copied");
-          toastReducer.setVisibility(true);
-          break;
-
-        default:
-          break;
-      }
-    }
-  }, [copyModalReducer, toastReducer, copyOccurred, initialCopyState]);
-
   const handleDownload = () => {
     const div = document.createElement("div");
     const root = createRoot(div);
@@ -144,11 +46,7 @@ const Content = () => {
           />
         </div>
       </div>
-      <Contactbar
-        contactLinks={contactLinks}
-        copyFallback={copyFallback}
-        onClick={handleCopy}
-      />
+      <Contactbar contactLinks={contactLinks} />
       <p className="py-4 border-b mb-2">{resData.summary}</p>
       <Card
         title="Skills"
@@ -254,24 +152,6 @@ const Content = () => {
           </div>
         ))}
       </Card>
-      {toastReducer.state.visibility && (
-        <Toast
-          message={toastReducer.state.message}
-          type={toastReducer.state.type}
-          closeMe={closeToast}
-          position={toastReducer.state.position}
-        />
-      )}
-      {copyModalReducer.state.visibility && (
-        <CopyModal
-          id={copyModalReducer.state.id}
-          title={copyModalReducer.state.title}
-          prompt={copyModalReducer.state.prompt}
-          textToCopy={copyModalReducer.state.textToCopy}
-          copyOccurred={copyOccurredCb}
-          closeMe={closeCopyModal}
-        />
-      )}
     </div>
   );
 };

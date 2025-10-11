@@ -92,7 +92,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="h-header w-full flex justify-between items-center border-b-[1px]"
+      className="h-header w-full flex justify-between items-center"
     >
       <div></div>
       <Navbar
