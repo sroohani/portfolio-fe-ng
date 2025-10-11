@@ -161,7 +161,7 @@
         "Codec converter software - (C, C++, MFC, DirectShow)",
         "Playlist Creator software - (C, C++, MFC, DirectShow)",
         "VTR emulator software - (C, C++, MFC)",
-        "Ingest Server software and its peripheral software tool - (C, C++, MFC, DirectShow, Matrox DigiSuite/DSX)",
+        "Ingest Server software and its peripheral software tools - (C, C++, MFC, DirectShow, Matrox DigiSuite/DSX)",
         "Playout Server software and its peripheral software tools - (C, C++, MFC, DirectShow, Matrox DigiSuite/DSX)",
         "Linux kernel module for configuring  an Ethernet switch - (C, Embedded Linux)",
         "Software for the DSL transceiver interface of an SHDSL DSLAM - (C, C++, Freescale PowerPC, VxWorks, Infineon Socrates-4e SHDSL)",

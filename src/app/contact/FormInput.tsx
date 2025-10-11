@@ -32,7 +32,7 @@ const FormInput = ({
   };
 
   return (
-    <div className="flex flex-col justify-start items-start gap-1 w-[80%] [&_input,textarea]:border-none [&_input,textarea]:outline-none [&_input,textarea]:placeholder:opacity-0 [&_input[type=tel]:not-placeholder-shown_]">
+    <div className="flex flex-col justify-start items-start gap-1 w-[80%] [&_input,textarea]:border-none [&_input,textarea]:outline-none [&_input,textarea]:placeholder:opacity-0 [&_input[type=tel]:not-placeholder-shown]">
       <label
         className="group relative flex justify-center items-center border-b-[1px] w-full"
         htmlFor={id}

@@ -9,16 +9,27 @@ import ContactType, {
 import FormInput from "./FormInput";
 import Button from "@/components/Button";
 import { IoMdSend } from "react-icons/io";
+import { RiResetLeftFill } from "react-icons/ri";
 import { z } from "zod";
 import { sendMessage } from "@/server-actions";
 import TelInput from "./TelInput";
 import { useToastStore } from "@/components/store";
+import Buttonbar from "@/components/Buttonbar";
 
-const ContactForm = () => {
+interface Props {
+  onSent?: () => void;
+}
+
+const ContactForm = ({ onSent }: Props) => {
   const toast = useToastStore();
   const [contactType, setContactType] = useState(CONTACT_TYPE_NONE);
   const formRef = useRef<HTMLFormElement>(null);
   const [formKey, setFormKey] = useState(false);
+
+  const resetForm = () => {
+    setContactType(CONTACT_TYPE_NONE);
+    setFormKey(!formKey);
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,7 +40,7 @@ const ContactForm = () => {
         name: z.string().optional(),
         subject: z.string().optional(),
         contact: z.union([
-          z.literal(""),
+          z.literal("none"),
           z.literal("email"),
           z.literal("whatsapp"),
         ]),
@@ -43,7 +54,7 @@ const ContactForm = () => {
           (schema.contact === "whatsapp" &&
             schema.whatsapp !== undefined &&
             schema.whatsapp.length > 0) ||
-          schema.contact === ""
+          schema.contact === "none"
         );
       });
 
@@ -64,10 +75,14 @@ const ContactForm = () => {
       })
     );
 
-    setFormKey(!formKey);
+    resetForm();
 
     toast.setMessage("Sent!");
     toast.setVisible(true);
+
+    if (onSent) {
+      onSent();
+    }
   };
 
   return (
@@ -114,16 +129,26 @@ const ContactForm = () => {
         id="message"
         title="Message"
         maxLen={512}
-        rows={5}
+        rows={3}
         cols={33}
         required
       />
-      <Button
-        title="Send"
-        classes="min-w-[15ch]"
-        icon={IoMdSend}
-        iconPosition="after"
-      />
+      <Buttonbar>
+        <Button
+          title="Send"
+          type="submit"
+          classes="min-w-[15ch] m-2 sm:mx-6 sm:mb-2 sm:mt-0"
+          icon={IoMdSend}
+          iconPosition="after"
+        />
+        <Button
+          title="Reset"
+          classes="min-w-[15ch] m-2 sm:mx-6 sm:mb-2 sm:mt-0"
+          icon={RiResetLeftFill}
+          iconPosition="after"
+          onClick={resetForm}
+        />
+      </Buttonbar>
     </form>
   );
 };

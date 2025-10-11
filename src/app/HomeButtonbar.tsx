@@ -3,11 +3,12 @@
 import React from "react";
 import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
+import Buttonbar from "@/components/Buttonbar";
 
-const HomeButtonBar = () => {
+const HomeButtonbar = () => {
   const router = useRouter();
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+    <Buttonbar>
       <Button
         title="View or download my resume"
         onClick={() => router.push("/resume")}
@@ -16,8 +17,8 @@ const HomeButtonBar = () => {
         title="Send me a message"
         onClick={() => router.push("/contact")}
       />
-    </div>
+    </Buttonbar>
   );
 };
 
-export default HomeButtonBar;
+export default HomeButtonbar;

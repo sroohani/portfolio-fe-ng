@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import HomeButtonBar from "./HomeButtonBar";
+import HomeButtonBar from "./HomeButtonbar";
 import logo from "@/assets/images/logo.jpeg";
 import wavingHand from "@/assets/images/waving-hand.png";
 
