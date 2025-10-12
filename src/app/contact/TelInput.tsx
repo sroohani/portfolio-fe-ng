@@ -51,7 +51,7 @@ const TelInput = ({ id, title, maxLen, required = false }: Props) => {
           }
           required
         />
-        <span className="absolute tel-normal-label peer-has-[.PhoneInputInput]:not-empty:tel-elevated-label transition-all duration-300">
+        <span className="absolute tel-normal-label group-focus-within:tel-elevated-label peer-has-[.PhoneInputInput:not(:placeholder-shown)]:tel-elevated-label transition-all duration-300">
           {title}
         </span>
         {required && <span className="text-red-600 text-xl">*</span>}
