@@ -15,7 +15,7 @@ const SideMenu = () => {
     setTimeout(() => setOutsideClickHappened(false), 100);
     setVisibility(false);
   });
-  const { setPath } = usePathStore();
+  const { setPath, notFound } = usePathStore();
 
   useEffect(() => {
     if (sideMenuRef.current) {
@@ -38,6 +38,7 @@ const SideMenu = () => {
       <ThemeSelector standalone={false} />
       <Navbar
         items={navbarItemsData}
+        notFound={notFound}
         id={MAIN_NAV_ID}
         onClick={handleNavbarClick}
         vertical={true}

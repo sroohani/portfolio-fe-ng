@@ -18,7 +18,7 @@ const Header = () => {
   const themeIconButtonRef = useRef<HTMLButtonElement>(null);
   const sideMenuIconButtonRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLElement>(null);
-  const { setPath, setNotFound } = usePathStore();
+  const { setPath, notFound, setNotFound } = usePathStore();
   const {
     setSelectorVisibility,
     setSelectorTop,
@@ -35,7 +35,6 @@ const Header = () => {
   } = useSideMenuStore();
 
   const handleNavbarClick = (navbarId: number, navbarItemId: number) => {
-    setNotFound(false);
     setPath(
       navbarItemsData.find((item) => item.id === navbarItemId)?.href ?? "/"
     );
@@ -85,10 +84,11 @@ const Header = () => {
     ) {
       path = "/about";
     } else {
-      path = "/";
+      path = "";
+      setNotFound(true);
     }
     setPath(path);
-  }, [setPath, pathname]);
+  }, [setPath, pathname, setNotFound]);
 
   return (
     <header
@@ -98,6 +98,7 @@ const Header = () => {
       <div></div>
       <Navbar
         items={navbarItemsData}
+        notFound={notFound}
         id={MAIN_NAV_ID}
         onClick={handleNavbarClick}
       />

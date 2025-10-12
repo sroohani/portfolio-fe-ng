@@ -6,6 +6,7 @@ import { usePathStore } from "./store";
 
 interface NavbarProps {
   id: number;
+  notFound: boolean;
   items: NavbarItemData[];
   vertical?: boolean;
   onClick?: (navbarId: number, navbarItemId: number) => void;
@@ -13,6 +14,7 @@ interface NavbarProps {
 
 const Navbar = ({
   id,
+  notFound,
   items,
   vertical = false,
   onClick = undefined,
@@ -28,7 +30,7 @@ const Navbar = ({
       return path.substring(1);
     }
 
-    return "🤔";
+    return "";
   };
 
   return (
@@ -54,7 +56,11 @@ const Navbar = ({
           </div>
           <div
             className={`h-[0.1rem] ${
-              item.href === comparablePath(path) ? "w-full" : "w-0"
+              notFound
+                ? "w-0"
+                : item.href === comparablePath(path)
+                ? "w-full"
+                : "w-0"
             } bg-[var(--color-foreground)] group-hover:transition-[width] group-hover:w-full`}
           ></div>
         </Link>
