@@ -32,7 +32,7 @@ const TelInput = ({ id, title, maxLen, required = false }: Props) => {
         htmlFor={id}
       >
         <PhoneInput
-          className="w-full [&_input]:autofill:no-browser-autofill-style [&_input]:hover:autofill:no-browser-autofill-style [&_input]:focus:autofill:no-browser-autofill-style peer"
+          className="w-full [&_.PhoneInputCountrySelect]:bg-background [&_.PhoneInputCountrySelect]:scrollbar-themed [&_input]:autofill:no-browser-autofill-style [&_input]:hover:autofill:no-browser-autofill-style [&_input]:focus:autofill:no-browser-autofill-style peer"
           flags={{
             IR: () => (
               <Image
