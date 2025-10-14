@@ -10,6 +10,15 @@
     "cellphone": "+351920262832"
   },
   "summary": "Seasoned C and C++ developer with 24+ years of experience, transitioning into full-stack web development. Proficient in Go, JavaScript, TypeScript, React, Next.js, Vue.js, Nuxt, and Python, with a focus on building performant, scalable applications. Passionate about open-source contributions and modern web architectures.",
+  "domains": [
+    "Video and Audio",
+    "Security",
+    "Automotive",
+    "Embedded",
+    "Web",
+    "Telecom",
+    "GIS"
+  ],
   "skills": [
     {
       "title": "Languages",

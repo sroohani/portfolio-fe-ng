@@ -48,6 +48,10 @@ const Content = () => {
       </div>
       <Contactbar contactLinks={contactLinks} />
       <p className="py-4 border-b mb-2">{resData.summary}</p>
+      <div className="w-full border-b py-2 mb-4">
+        <span className="font-bold text-xl">Domains of Experience:&nbsp;</span>
+        <span className="text-lg">{resData.domains.join(", ")}</span>
+      </div>
       <Card
         title="Skills"
         containerClasses="w-full mb-4"

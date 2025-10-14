@@ -65,7 +65,17 @@ const PDF = () => {
       <span className="text-[0.4rem] mb-2 [word-spacing: -5px]">
         {resumeJson.summary}
       </span>
-      <HR classes="w-full" />
+      <HR classes="w-full mb-1" />
+      <div className="w-full flex justify-start items-center">
+        <span className="font-bold text-[0.4rem] text-left">
+          Domains of Experience:&nbsp;
+        </span>
+        <span className="text-[0.4rem] text-left">
+          {resumeJson.domains.join(", ")}
+        </span>
+      </div>
+
+      <HR classes="w-full mt-1" />
       <SectionTitle title="Skills" />
       {resumeJson.skills.map((skill, index) => (
         <Skill title={skill.title} skills={skill.skills} key={index} />

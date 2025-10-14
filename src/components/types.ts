@@ -112,6 +112,7 @@ interface Language {
 export interface ResumeData {
   header: Header;
   summary: string;
+  domains: string[];
   skills: Skill[];
   professionalExperience: ProfessionalExperience[];
   education: string[];
