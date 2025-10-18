@@ -1,6 +1,9 @@
 "use server";
 
 import { Client, ExecutionMethod, Functions } from "node-appwrite";
+import fs from "node:fs";
+import { resumeFullPath, resumePathname } from "./server-constants";
+import { generatePDF } from "./app/pdf";
 
 export const sendMessage = async (body: string) => {
   const client = new Client();
@@ -23,4 +26,16 @@ export const sendMessage = async (body: string) => {
   } catch (error) {
     console.error(`Error: ${error}`);
   }
+};
+
+export const downloadResume = async () => {
+  if (!fs.existsSync(resumePathname)) {
+    fs.mkdirSync(resumePathname, { recursive: true });
+  }
+
+  if (!fs.existsSync(resumeFullPath)) {
+    await generatePDF();
+  }
+
+  return new Blob([fs.readFileSync(resumeFullPath)]);
 };

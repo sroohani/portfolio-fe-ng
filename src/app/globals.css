@@ -159,4 +159,6 @@
   --height-header: 3.5rem;
   --height-footer: 3.5rem;
   --height-main: calc(100dvh - var(--height-header) - var(--height-footer));
+  --text-2xs: 0.65rem;
+  --text-3xs: 0.55rem;
 }

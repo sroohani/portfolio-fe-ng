@@ -10,90 +10,84 @@ interface SectionTitleProps {
   title: string;
 }
 const SectionTitle = ({ title }: SectionTitleProps) => {
-  return (
-    <span className="w-full font-bold text-[0.5rem] text-left mb-1">
-      {title}
-    </span>
-  );
+  return <span className="font-bold text-2xs mb-1">{title}</span>;
 };
 
 const PDF = () => {
   return (
-    <div className="text-black text-[16px] bg-white font-sans w-[430px] flex flex-col justify-start items-center px-11">
-      <span className="text-[0.75rem]/3 font-bold w-full text-center">
+    <div className="text-black bg-white text-2xs font-sans flex flex-col justify-start items-stretch w-[80%] mx-auto">
+      <span className="text-sm font-bold text-center">
         {resumeJson.header.name}
       </span>
-      <span className="text-[0.5rem]/3 mb-2 w-full text-center">
-        Software developer
-      </span>
-      <HR classes="w-full mb-1" />
+      <span className="text-center mb-2">Software developer</span>
+      <HR />
       <ContactRow
         item0={{
           image: "/images/resume/map-pin.png",
           text: resumeJson.header.location,
+          type: "link",
+          href: resumeJson.header.map,
         }}
         item1={{
           image: "/images/resume/mail.png",
           text: resumeJson.header.email,
-          isEmail: true,
+          type: "email",
         }}
       />
       <ContactRow
         item0={{
           image: "/images/resume/smartphone.png",
           text: resumeJson.header.cellphone,
+          type: "tel",
         }}
         item1={{
           image: "/images/resume/globe.png",
           text: resumeJson.header.website,
-          isLink: true,
+          type: "link",
         }}
       />
       <ContactRow
         item0={{
           image: "/images/resume/github.png",
           text: resumeJson.header.github,
-          isLink: true,
+          type: "link",
         }}
         item1={{
           image: "/images/resume/InBug-Black.png",
           text: resumeJson.header.linkedin,
-          isLink: true,
+          type: "link",
         }}
       />
-      <HR classes="w-full" />
-      <span className="text-[0.4rem] mb-2 [word-spacing: -5px]">
-        {resumeJson.summary}
-      </span>
-      <HR classes="w-full mb-1" />
-      <div className="w-full flex justify-start items-center">
-        <span className="font-bold text-[0.4rem] text-left">
-          Domains of Experience:&nbsp;
-        </span>
-        <span className="text-[0.4rem] text-left">
-          {resumeJson.domains.join(", ")}
-        </span>
+      <HR />
+      <span className="my-2">{resumeJson.summary}</span>
+      <HR />
+      <div className="flex justify-start items-center my-2">
+        <span className="font-bold">Domains of Experience:&nbsp;</span>
+        <span>{resumeJson.domains.join(", ")}</span>
       </div>
-
-      <HR classes="w-full mt-1" />
+      <HR />
       <SectionTitle title="Skills" />
       {resumeJson.skills.map((skill, index) => (
-        <Skill title={skill.title} skills={skill.skills} key={index} />
+        <Skill
+          title={skill.title}
+          skills={skill.skills}
+          key={`skill-${index}`}
+        />
       ))}
-      <HR classes="w-full my-2" />
+      <HR />
       <SectionTitle title="Professional Background" />
       {resumeJson.professionalExperience.map((item, index) => (
-        <Experience {...item} key={index} />
+        <Experience {...item} key={`experience-${index}`} />
       ))}
-      <HR classes="w-full my-2" />
+      <HR />
       <SectionTitle title="Academic Background" />
       {resumeJson.education.map((bg, index) => (
-        <Education title={bg} key={index} />
+        <Education title={bg} key={`education-${index}`} />
       ))}
-      <HR classes="w-full my-2" />
+      <HR />
       <SectionTitle title="Languages" />
       {resumeJson.languages.map((language, index) => (
-        <Language {...language} key={index} />
+        <Language {...language} key={`language-${index}`} />
       ))}
     </div>
   );

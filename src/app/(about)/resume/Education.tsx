@@ -1,4 +1,5 @@
-import Image from "next/image";
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 
 interface Props {
   title: string;
@@ -6,14 +7,9 @@ interface Props {
 
 const Education = ({ title }: Props) => {
   return (
-    <div className="flex justify-start items-center w-full font-[400] text-[0.3rem] gap-[0.9]">
-      <Image
-        src="/images/resume/university.png"
-        width={6}
-        height={6}
-        alt="University"
-      />
-      <span className="pb-1.5">{title}</span>
+    <div className="flex justify-start items-center gap-4">
+      <img src="/images/resume/university.png" className="w-3 h-3" />
+      <span>{title}</span>
     </div>
   );
 };

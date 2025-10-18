@@ -3,7 +3,7 @@ interface Props {
 }
 
 const HR = ({ classes = "" }: Props) => {
-  return <hr className={`h-[1px] text-[#aba395] opacity-50 mb-0 ${classes}`} />;
+  return <hr className={`h-[1px] text-gray-300 opacity-60 my-1 ${classes}`} />;
 };
 
 export default HR;

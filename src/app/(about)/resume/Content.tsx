@@ -1,36 +1,36 @@
 "use client";
 
-import { createRoot } from "react-dom/client";
-import { flushSync } from "react-dom";
-import { Download } from "lucide-react";
 import { FaUniversity } from "react-icons/fa";
 import { VscProject } from "react-icons/vsc";
-import { contactLinks, resData } from "@/components/server-constants";
+import { contactLinks, resData } from "@/client-constants";
 import Card from "@/components/Card";
 import Contactbar from "@/components/Contactbar";
 import IconButton from "@/components/IconButton";
-import PDF from "./PDF";
-import { jsPDF } from "jspdf";
+import { Download } from "lucide-react";
+import { downloadResume } from "@/server-actions";
+import { useState } from "react";
+import InProgress from "@/components/InProgress";
 
 const Content = () => {
-  const handleDownload = () => {
-    const div = document.createElement("div");
-    const root = createRoot(div);
-    flushSync(() => {
-      root.render(<PDF />);
-    });
+  const [isDownloading, setIsDownloading] = useState(false);
 
-    const doc = new jsPDF({ orientation: "p", format: "a4", unit: "px" });
-    doc.html(div.innerHTML.toString(), {
-      callback: (doc) => {
-        doc.save("Shahram Roohani - CV.pdf");
-        root.unmount();
-      },
-      x: 0,
-      y: 0,
-      autoPaging: "text",
-      margin: [35, 0, 35, 0],
-    });
+  const handleDownload = async () => {
+    setIsDownloading(true);
+
+    const url = window.URL.createObjectURL(await downloadResume());
+    const link = document.createElement("a");
+
+    link.href = url;
+
+    link.download = "Shahram Roohani - CV.pdf";
+
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+
+    setIsDownloading(false);
   };
 
   return (
@@ -38,12 +38,16 @@ const Content = () => {
       <div className="flex justify-between items-center w-full pb-4 border-b">
         <span className="text-xl">{resData.header.name}</span>
         <div className="h-4 w-4">
-          <IconButton
-            id={0}
-            icon={Download}
-            title="Download my resume"
-            onClick={handleDownload}
-          />
+          {isDownloading ? (
+            <InProgress />
+          ) : (
+            <IconButton
+              id={0}
+              icon={Download}
+              title="Download my resume"
+              onClick={async () => await handleDownload()}
+            />
+          )}
         </div>
       </div>
       <Contactbar contactLinks={contactLinks} />

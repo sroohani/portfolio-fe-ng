@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import HR from "./HR";
-import Image from "next/image";
 
 interface Props {
   from: string;
@@ -10,37 +11,23 @@ interface Props {
 }
 const Experience = ({ from, to, companies, positions, projects }: Props) => {
   return (
-    <div className="w-full flex flex-col">
-      <span className="text-center pb-1 w-full font-[700] text-[0.4rem]">
+    <div className="flex flex-col mt-2 gap-1">
+      <span className="text-center font-[700]">
         {from} to {to}
       </span>
       <HR classes="w-[80%] self-center" />
-      <span className="text-left w-full font-[700] text-[0.35rem] px-[0.8]">
-        Companies:
-      </span>
-      <span className="text-left w-full font-[400] text-[0.35rem] px-[0.8] pb-1">
-        {companies.join(", ")}
-      </span>
-      <span className="text-left w-full font-[700] text-[0.35rem] px-[0.8]">
-        Positions:
-      </span>
-      <span className="text-left w-full font-[400] text-[0.35rem] px-[0.8] pb-1">
-        {positions.join(", ")}
-      </span>
-      <span className="text-left w-full font-[700] text-[0.35rem] px-[0.8] pb-1">
-        Projects:
-      </span>
+      <span className="text-left font-[700] pl-2">Companies:</span>
+      <span className="text-left pl-2 mb-1">{companies.join(", ")}</span>
+      <span className="text-left font-[700] pl-2">Positions:</span>
+      <span className="text-left pl-2 mb-1">{positions.join(", ")}</span>
+      <span className="text-left font-[700] pl-2">Projects:</span>
       {projects.map((project, index) => (
-        <div className="flex justify-start items-center h-2 mb-1" key={index}>
-          <Image
-            src="/images/resume/chevron-right.png"
-            width={6}
-            height={6}
-            alt="Chevron right"
-          />
-          <span className="text-left w-full font-[400] text-[0.3rem] px-[0.8] pb-2">
-            {project}
-          </span>
+        <div
+          className="flex justify-start items-center pl-2"
+          key={`project-${index}`}
+        >
+          <img src="/images/resume/chevron-right.png" className="w-3 h-3" />
+          <span className="text-left pl-2">{project}</span>
         </div>
       ))}
     </div>

@@ -128,6 +128,8 @@ export interface ContactLink {
   textToCopy?: string;
 }
 
+export type ContactType = "link" | "email" | "tel" | "text";
+
 export type ToastType = "success" | "warning" | "error" | "info";
 
 export interface CopyModalState {

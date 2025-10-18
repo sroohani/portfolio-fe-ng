@@ -57,9 +57,10 @@
     {
       "title": "Backend",
       "skills": [
-        "Go - Fiber",
-        "Node.js - Express & Nest.js",
-        "Python - FastAPI"
+        "Go (Fiber)",
+        "Node.js (Express, Nest.js)",
+        "Python (FastAPI)",
+        "C++ (Crow, Drogon)"
       ]
     },
     {

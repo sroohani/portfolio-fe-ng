@@ -5,7 +5,7 @@ import {
   CONTACT_LOCATION_ID,
   CONTACT_WEBSITE_ID,
   contactLinks,
-} from "@/components/server-constants";
+} from "@/client-constants";
 
 const ContactbarContainer = () => {
   return (
