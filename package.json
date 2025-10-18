@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --experimental-https",
-    "build": "next build && npx playwright install",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npx playwright install"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.7.0",
