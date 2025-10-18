@@ -22,8 +22,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { chromium } = await import("playwright");
-  console.log(chromium.executablePath());
   return (
     <html lang="en" className="hidden font-sans antialiased">
       <body className="relative h-full w-full sm:w-[80%] max-w-[800px] m-auto">

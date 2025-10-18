@@ -3,7 +3,10 @@ export async function register() {
     const { execSync } = await import("child_process");
 
     try {
-      execSync("npx playwright install chromium", { stdio: "inherit" });
+      execSync(
+        "PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright npx playwright install chromium",
+        { stdio: "inherit" }
+      );
     } catch (error) {
       console.warn(
         "Playwright install at startup failed or already done.",
