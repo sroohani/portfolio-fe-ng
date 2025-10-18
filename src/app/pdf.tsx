@@ -79,11 +79,11 @@ const getTailwindCss = () => {
 };
 
 export const generatePDF = async () => {
-  const { chromium } = await import("playwright");
+  const puppeteer = await import("puppeteer");
 
   const { renderToString } = await import("react-dom/server");
   const htmlString = renderToString(<PDF />);
-  const browser = await chromium.launch({
+  const browser = await puppeteer.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
@@ -102,9 +102,8 @@ export const generatePDF = async () => {
 
       `;
 
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  await page.emulateMedia({ media: "screen" });
+  const page = await browser.newPage();
+  await page.emulateMediaType("screen");
   await page.setContent(htmlWithStyles, { waitUntil: "load" });
   await page.pdf({
     path: resumeFullPath,
