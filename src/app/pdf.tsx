@@ -3,7 +3,6 @@
 import PDF from "@/app/(about)/resume/PDF";
 import path from "node:path";
 import fs from "node:fs";
-import { chromium } from "playwright";
 import { Buffer } from "node:buffer";
 import { parse } from "node-html-parser";
 import { resumeFullPath } from "@/server-constants";
@@ -80,6 +79,8 @@ const getTailwindCss = () => {
 };
 
 export const generatePDF = async () => {
+  const { chromium } = await import("playwright");
+
   const { renderToString } = await import("react-dom/server");
   const htmlString = renderToString(<PDF />);
   const browser = await chromium.launch({
