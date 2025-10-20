@@ -1,6 +1,50 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
-import HR from "./HR";
+import { View, Text, Image, StyleSheet } from "@react-pdf/renderer";
+
+const styles = StyleSheet.create({
+  years: {
+    textAlign: "center",
+    borderBottom: 0.3,
+    paddingBottom: 0.3,
+    marginTop: 4,
+    marginBottom: 1,
+    fontSize: 8,
+    fontWeight: 600,
+    width: "80%",
+    alignSelf: "center",
+    color: "#4559a8",
+  },
+  title: {
+    fontSize: 8,
+    fontWeight: 600,
+    alignSelf: "flex-start",
+    paddingLeft: 0.8,
+    paddingRight: 0.8,
+    marginTop: 4,
+    marginBottom: 4,
+  },
+  description: {
+    fontSize: 8,
+    fontWeight: 400,
+    alignSelf: "flex-start",
+    paddingLeft: 0.8,
+    paddingRight: 0.8,
+    marginTop: 2,
+    marginBottom: 6,
+  },
+  project: {
+    display: "flex",
+    flexDirection: "row",
+    fontSize: 8,
+    gap: 2,
+    fontWeight: 400,
+    marginBottom: 4,
+  },
+  chevronRight: {
+    width: 8,
+    height: 8,
+  },
+});
 
 interface Props {
   from: string;
@@ -11,26 +55,25 @@ interface Props {
 }
 const Experience = ({ from, to, companies, positions, projects }: Props) => {
   return (
-    <div className="flex flex-col mt-2 gap-1">
-      <span className="text-center font-[700]">
+    <View wrap={false}>
+      <Text style={styles.years}>
         {from} to {to}
-      </span>
-      <HR classes="w-[80%] self-center" />
-      <span className="text-left font-[700] pl-2">Companies:</span>
-      <span className="text-left pl-2 mb-1">{companies.join(", ")}</span>
-      <span className="text-left font-[700] pl-2">Positions:</span>
-      <span className="text-left pl-2 mb-1">{positions.join(", ")}</span>
-      <span className="text-left font-[700] pl-2">Projects:</span>
+      </Text>
+      <Text style={styles.title}>Companies:</Text>
+      <Text style={styles.description}>{companies.join(", ")}</Text>
+      <Text style={styles.title}>Positions:</Text>
+      <Text style={styles.description}>{positions.join(", ")}</Text>
+      <Text style={styles.title}>Projects:</Text>
       {projects.map((project, index) => (
-        <div
-          className="flex justify-start items-center pl-2"
-          key={`project-${index}`}
-        >
-          <img src="/images/resume/chevron-right.png" className="w-3 h-3" />
-          <span className="text-left pl-2">{project}</span>
-        </div>
+        <View style={styles.project} key={index}>
+          <Image
+            style={styles.chevronRight}
+            src="public/images/resume/chevron-right.png"
+          />
+          <Text>{project}</Text>
+        </View>
       ))}
-    </div>
+    </View>
   );
 };
 

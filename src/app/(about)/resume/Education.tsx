@@ -1,5 +1,29 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
+
+import { View, Text, Image, StyleSheet } from "@react-pdf/renderer";
+
+const styles = StyleSheet.create({
+  academicSection: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    width: "100%",
+    gap: 2,
+    marginBottom: 4,
+  },
+  university: {
+    width: 8,
+    height: 8,
+  },
+  academic: {
+    fontSize: 8,
+    fontWeight: 400,
+    alignSelf: "flex-start",
+    paddingLeft: 0.8,
+    paddingRight: 0.8,
+  },
+});
 
 interface Props {
   title: string;
@@ -7,10 +31,13 @@ interface Props {
 
 const Education = ({ title }: Props) => {
   return (
-    <div className="flex justify-start items-center gap-4">
-      <img src="/images/resume/university.png" className="w-3 h-3" />
-      <span>{title}</span>
-    </div>
+    <View style={styles.academicSection}>
+      <Image
+        style={styles.university}
+        src="public/images/resume/university.png"
+      />
+      <Text style={styles.academic}>{title}</Text>
+    </View>
   );
 };
 
