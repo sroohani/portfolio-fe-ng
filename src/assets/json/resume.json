@@ -83,8 +83,13 @@
         "MongoDB",
         "Drizzle",
         "Prisma",
-        "Mongoose"
+        "Mongoose",
+        "GORM"
       ]
+    },
+    {
+      "title": "API",
+      "skills": ["REST", "gRPC", "Protobuf", "ZeroMQ"]
     }
   ],
   "professionalExperience": [
@@ -95,9 +100,9 @@
       "positions": ["IT consultant", "C and C++ developer", "Web developer"],
       "projects": [
         "Summit banking system - (C, C++, Bash, Perl, Linux)",
-        "Automotive software (ECU) - (C++, Python, Google Test, Bazel, PlantUML, Embedded Linux)",
+        "Automotive software (ECU) - (C, C++, Python, Lua, Google Test, AUTOSAR, Bazel, PlantUML, Embedded Linux)",
         "Smart grid data collectors - (C, C++, Embedded Linux)",
-        "TV STBs (set-top boxes) - (C, C++, Yocto/Embedded Linux, Docker)",
+        "TV STBs (Set-Top Boxes) - (C, C++, Yocto/Embedded Linux, Docker)",
         "IPMX/NMOS media streaming libraries - (C, C++, Linux, Docker)",
         "Excel add-on with shared runtime and task panel - (TypeScript, Office.js, Vite, Vue.js, Pinia)"
       ]
@@ -126,9 +131,11 @@
         "CPS (Customer Programming Software) - (C++, Qt)",
         "CPS configuration transfer over USB 2.0 - (C++, Qt, libusb)",
         "UI and network connectivity for an acoustic positioning system - (C++, QML)",
+        "Geofencing software (C++, Qt, QML, JavaScript)",
         "SNMP agent for radio repeater devices - (C++, net-snmp, Agent++, SNMP++, Linux)",
         "IP Site Connect agent for radio repeater devices - (C++, Boost, Qt)",
-        "HSM (Hardware Security Module) - (C, C++, gRPC, Yocto/PetaLinux)"
+        "HSM (Hardware Security Module) - (C, C++, gRPC, Yocto/PetaLinux, ARM)",
+        "HSM management desktop software (C++, Qt, gRPC, Protobuf)"
       ]
     },
     {
@@ -145,11 +152,11 @@
         "Web developer"
       ],
       "projects": [
-        "Correlation engine of a Security Information and Events Management system (SIEM) - (C, C++, Qt, Linux)",
+        "Correlation engine of a Security Information and Events Management system (SIEM) - (C, C++, Qt, Boost, Linux)",
         "Extensible debugging CLI for the SIEM correlation engine - (C, C++, Boost, Linux)",
         "Event notifier software for the SIEM correlation engine - (C, C++, Qt, POCO)",
-        "Web-based software for printing plastic debit cards - (C, C++, Qt, JavaScript, Magicard printers)",
-        "Cross-platform agent software for Security Information and Events Management (SIEM) system - (C, C++, Qt, ZeroMQ, Lua)"
+        "Web-based software for printing PVC debit cards - (C, C++, Qt, CGI, JavaScript, Magicard printers)",
+        "Cross-platform agent software for Security Information and Events Management (SIEM) system - (C, C++, Qt, ZeroMQ, Lua, Windows, Linux)"
       ]
     },
     {
@@ -167,15 +174,15 @@
         "Quiz software - (Visual Basic, MS JetEngine)",
         "Rich library of helper classes and functions - (C, C++, Win32 API)",
         "Suite of multimedia widgets - (C, C++, MFC, Win32 API)",
-        "Codec converter software - (C, C++, MFC, DirectShow)",
-        "Playlist Creator software - (C, C++, MFC, DirectShow)",
-        "VTR emulator software - (C, C++, MFC)",
-        "Ingest Server software and its peripheral software tools - (C, C++, MFC, DirectShow, Matrox DigiSuite/DSX)",
-        "Playout Server software and its peripheral software tools - (C, C++, MFC, DirectShow, Matrox DigiSuite/DSX)",
+        "Codec converter software - (C, C++, MFC, Win32 API, DirectShow)",
+        "Playlist Creator software - (C, C++, MFC, Win32 API, DirectShow)",
+        "VTR management software - (C, C++, MFC, Win32 API, RS-422)",
+        "Ingest Server software and its peripheral software tools - (C, C++, MFC, Win32 API, DirectShow, Matrox DigiSuite/DSX)",
+        "Playout Server software and its peripheral software tools - (C, C++, MFC, Win32 API, DirectShow, Matrox DigiSuite/DSX)",
         "Linux kernel module for configuring  an Ethernet switch - (C, Embedded Linux)",
         "Software for the DSL transceiver interface of an SHDSL DSLAM - (C, C++, Freescale PowerPC, VxWorks, Infineon Socrates-4e SHDSL)",
-        "Software for the DSL transceiver interface of an ADSLx/VDSL2 DSLAM - (C, C++, Freescale PowerPC, Linux, Infineon Vinax-M ADSLx/VDSL2 transceiver)",
-        "Frame Grabber software (Part-time contract) - (C, C++, Win32, EMS Imaging PhynxRGB RGB frame grabber cards)",
+        "Software for the DSL transceiver interface of an ADSLx/VDSL2 DSLAM - (C, C++, Freescale PowerPC, Embedded Linux, Infineon Vinax-M ADSLx/VDSL2 transceiver)",
+        "Frame Grabber software (Part-time contract) - (C, C++, MFC, Win32 API, EMS Imaging PhynxRGB RGB frame grabber cards)",
         "Video server (Part-time contract) - (C, C++, MFC, Win32 API, FFMPEG, MainConcept SDK, Bluefish video cards)"
       ]
     }

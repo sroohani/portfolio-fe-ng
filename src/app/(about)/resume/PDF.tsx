@@ -30,7 +30,7 @@ const PDF = () => {
       title={`${resumeJson.header.name} - CV`}
       author={resumeJson.header.name}
       subject="Curriculum Vitae"
-      keywords="Software developer;C;Modern C++;HTML;CSS;JavaScript;TypeScript;React;Next;Vue;Nuxt;Go;Python"
+      keywords="Software developer;C;Modern C++;HTML;CSS;JavaScript;TypeScript;React;Next;Vue;Nuxt;Go;Python;REST;gRPC;Protobuf;ORM"
       language="en-US"
     >
       <Page size="A4" style={styles.page}>

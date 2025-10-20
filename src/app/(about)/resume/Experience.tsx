@@ -5,8 +5,7 @@ const styles = StyleSheet.create({
   years: {
     textAlign: "center",
     borderBottom: 0.3,
-    paddingBottom: 0.3,
-    marginTop: 4,
+    marginTop: 2,
     marginBottom: 1,
     fontSize: 8,
     fontWeight: 600,
@@ -21,7 +20,6 @@ const styles = StyleSheet.create({
     paddingLeft: 0.8,
     paddingRight: 0.8,
     marginTop: 4,
-    marginBottom: 4,
   },
   description: {
     fontSize: 8,
@@ -29,8 +27,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     paddingLeft: 0.8,
     paddingRight: 0.8,
-    marginTop: 2,
-    marginBottom: 6,
+    marginBottom: 2,
   },
   project: {
     display: "flex",
@@ -38,7 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 8,
     gap: 2,
     fontWeight: 400,
-    marginBottom: 4,
+    marginBottom: 3,
   },
   chevronRight: {
     width: 8,

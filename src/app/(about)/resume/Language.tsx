@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     marginTop: 8,
     marginBottom: 8,
-    borderBottom: 0.3,
     paddingBottom: 4,
     width: "30%",
     gap: 2,

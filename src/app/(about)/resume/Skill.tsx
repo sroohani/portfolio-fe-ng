@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     width: "80%",
-    marginBottom: 6,
+    marginBottom: 7,
   },
   title: {
     fontSize: 8,
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     width: "20%",
   },
   skills: {
-    fontSize: 8,
+    fontSize: 7,
     fontWeight: 400,
     alignSelf: "flex-start",
     width: "80%",
