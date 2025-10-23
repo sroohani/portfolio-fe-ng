@@ -61,5 +61,6 @@ export const tabbarItemsData: TabbarItemData[] = [
   },
 ];
 
-export const THEME_ICON_BUTTON_ID = 0;
-export const MENU_ICON_BUTTON_ID = 1;
+export const ADMIN_ICON_BUTTON_ID = 0;
+export const THEME_ICON_BUTTON_ID = 1;
+export const MENU_ICON_BUTTON_ID = 2;

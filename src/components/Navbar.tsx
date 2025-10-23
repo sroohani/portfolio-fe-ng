@@ -9,6 +9,7 @@ interface NavbarProps {
   notFound: boolean;
   items: NavbarItemData[];
   vertical?: boolean;
+  classes?: string;
   onClick?: (navbarId: number, navbarItemId: number) => void;
 }
 
@@ -17,6 +18,7 @@ const Navbar = ({
   notFound,
   items,
   vertical = false,
+  classes = "",
   onClick = undefined,
 }: NavbarProps) => {
   const { path } = usePathStore();
@@ -36,21 +38,21 @@ const Navbar = ({
   return (
     <nav
       className={`sm:flex justify-around gap-8 mt-1 ${
-        vertical ? "flex-col items-start" : "hidden items-center"
-      }`}
+        vertical ? "flex-col items-start w-full" : "hidden items-center"
+      } ${classes}`}
     >
       {items.map((item) => (
         <Link
-          className={`group h-full no-underline flex flex-col justify-around gap-1 ${
+          className={`group w-full h-full no-underline flex flex-col justify-around gap-1 ${
             vertical ? "items-stetch" : "items-center"
           } text-inherit bg-inherit`}
           href={item.altHref || item.href}
           onClick={() => onClick && onClick(id, item.id)}
           key={item.id}
         >
-          <div className="flex content-around items-center">
+          <div className="flex justify-start items-center">
             {item.icon && <item.icon className="mr-2" />}
-            <span className="flex content-center items-center h-full">
+            <span className="flex w-full justify-start items-center h-full">
               {item.title}
             </span>
           </div>
@@ -59,9 +61,11 @@ const Navbar = ({
               notFound
                 ? "w-0"
                 : item.href === comparablePath(path)
-                ? "w-full"
+                ? vertical
+                  ? "w-[85%] place-self-center"
+                  : "w-full"
                 : "w-0"
-            } bg-[var(--color-foreground)] group-hover:transition-[width] group-hover:w-full`}
+            } bg-foreground group-hover:transition-[width] group-hover:w-full`}
           ></div>
         </Link>
       ))}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 import {
@@ -8,16 +8,19 @@ import {
   MENU_ICON_BUTTON_ID,
   navbarItemsData,
   THEME_ICON_BUTTON_ID,
+  ADMIN_ICON_BUTTON_ID,
 } from "@/components/client-constants";
 import IconButton from "./IconButton";
-import { Palette, Menu } from "lucide-react";
+import { Palette, Menu, ShieldUser } from "lucide-react";
 import { usePathStore, useSideMenuStore, useThemeStore } from "./store";
+import { getAdminPanelUri } from "@/server-actions";
 
 const Header = () => {
   const pathname = usePathname();
   const themeIconButtonRef = useRef<HTMLButtonElement>(null);
   const sideMenuIconButtonRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const [adminPanelUri, setAdminPanelUri] = useState("");
   const { setPath, notFound, setNotFound } = usePathStore();
   const {
     setSelectorVisibility,
@@ -71,6 +74,15 @@ const Header = () => {
   };
 
   useEffect(() => {
+    (async () =>
+      setAdminPanelUri(
+        await getAdminPanelUri(
+          `${window.location.protocol}//${window.location.hostname}`
+        )
+      ))();
+  }, []);
+
+  useEffect(() => {
     let path = "";
 
     if (pathname === "/" || pathname === "/contact") {
@@ -93,15 +105,27 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="h-header w-full flex justify-between items-center"
+      className="h-header w-full flex justify-between items-center gap-2"
     >
-      <div></div>
+      <div className="w-full"></div>
       <Navbar
         items={navbarItemsData}
         notFound={notFound}
         id={MAIN_NAV_ID}
         onClick={handleNavbarClick}
       />
+      <div className="w-full"></div>
+      <a
+        href={adminPanelUri}
+        target="_blank"
+        className="hidden sm:inline-block sm:w-8 sm:h-8 mt-2"
+      >
+        <IconButton
+          id={ADMIN_ICON_BUTTON_ID}
+          icon={ShieldUser}
+          title={"Admin panel"}
+        />
+      </a>
       <IconButton
         ref={themeIconButtonRef}
         id={THEME_ICON_BUTTON_ID}

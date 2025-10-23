@@ -1,10 +1,8 @@
 "use server";
 
 import { Client, ExecutionMethod, Functions } from "node-appwrite";
-import fs from "node:fs";
-import ReactPDF, { DocumentProps } from "@react-pdf/renderer";
+import ReactPDF from "@react-pdf/renderer";
 import PDF from "@/app/(about)/resume/PDF";
-import { JSXElementConstructor, ReactElement } from "react";
 
 export const sendMessage = async (body: string) => {
   const client = new Client();
@@ -32,4 +30,11 @@ export const sendMessage = async (body: string) => {
 export const downloadResume = async () => {
   const pdfInstance = ReactPDF.pdf(PDF());
   return await pdfInstance.toBlob();
+};
+
+export const getAdminPanelUri = async (origin?: string) => {
+  if (process.env.NODE_ENV === "production") {
+    return process.env.ADMIN_PANEL_HOST ?? "";
+  }
+  return `${origin}:${process.env.ADMIN_PANEL_PORT ?? 3001}`;
 };
