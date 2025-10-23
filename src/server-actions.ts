@@ -33,7 +33,6 @@ export const downloadResume = async () => {
 };
 
 export const getAdminPanelUri = async (origin?: string) => {
-  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
   if (process.env.NODE_ENV === "production") {
     return process.env.ADMIN_PANEL_HOST ?? "";
   }
